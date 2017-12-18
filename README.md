@@ -1,2 +1,2 @@
 # Dropdown
-CIS213 Project 5-1
+CIS213 JavaScript Project 5-1
