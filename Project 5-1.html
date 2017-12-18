@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Project 5-1</title>
+	</head>
+	<body>
+	
+		<h2>The Dynamic Discs Team</h2>
+		<select class="teams">
+			<option selected class="default">Select a Team</option>
+			<option class="world-champions">World Champions</option>
+			<option class="team-king-ds">Team King D's</option>
+			<option class="team-fusion">Team Fusion</option>
+			<option class="team-lucid">Team Lucid</option>
+			<option class="classic-team">Classic Team</option>
+			<option class="ambassador-team">Ambassador Team</option>
+			<option class="juniors-team">Juniors Team</option>
+		</select> 
+		
+		<!-- Append Selection List here -->
+	
+		<script>
+			const teams = document.querySelector('.teams');
+			const teamMembers = document.createElement('select');
+			//Object literal 
+			var dynamicDiscs = {
+				// worldChampions 
+				worldChampions: ['Eric McCabe', 'Paige Pierce', 'Ron Convers Jr.'],
+				// teamKingDs
+				teamKingDs: 
+					[
+						'Chris Eads',
+						'Drew Gibson',
+						'Henrik Johnsen',
+						'Janne Hirsimake',
+						'Miles Seaborn',
+						'Zach Melton'
+					],
+				// teamFusion 
+				teamFusion: 
+					[
+						'Andrea Eads',
+						'Ben Wiggins',
+						'Chris Smith',
+						'Coby Guice',
+						'Eric Oakley',
+						'Jackolyn Halstead',
+						'Jake Lauber',
+						'Jonathan Ray',
+						'Liz Lopez',
+						'Natalie Hollokoi',
+						'Paige Bjerkaas',
+						'Patrick Blazek',
+						'Robert McCall',
+						'Stephen Schroeder',
+						'Tina Stanaitis',
+						'Troy Widden'
+					],
+				// teamLucid 
+				teamLucid: 
+					[
+						'A Ray',
+						'Andy DiFronzo',
+						'Brandon Oatman',
+						'Brian Miller',
+						'Brice Longerbone',
+						'Bryan Freese',
+						'Chris Tellesbo',
+						'Crispin Carrasco',
+						'Danny Lindahl',
+						'Dave Muntean Jr.',
+						'Dixon Jowers',
+						'Donald Ellsworth',
+						'Doug Bjerkaas',
+						'Jason Oxsen',
+						'Juha Kyto',
+						'Kyle Pinkman',
+						'Larry Cooper',
+						'Nate Martin',
+						'Robbie Olson',
+						'Ryan Draper',
+						'Steven Jacobs',
+						'Tero Tommola',
+						'Tony Shirley',
+						'Victor Nyhuus',
+						'Zach Newhouse'
+					],
+				// classicTeam 
+				classicTeam: 
+					[
+						'Alan Brown',
+						'Brent Sickel',
+						'Chris Goodrich',
+						'Chris Woj',
+						'Greg Schwartz',
+						'Jared Neal',
+						'Missy Gannon',
+						'Mitchell Zunich',
+						'Paul Dorries',
+						'Tom Butler',
+						'Tracy Ruder'
+					],
+				// ambassadorTeam 
+				ambassadorTeam: 
+					[
+						'Brandon Ray Watson',
+						'Brian Lamoreaux',
+						'Dustin Fournier',
+						'Jeremy Kindy',
+						'Laron Harris',
+						'Marcus Rawls',
+						'Mike Solt',
+						'Pete Cashen',
+						'Todd Beishline'
+					],
+				// juniorsTeam 
+				juniorsTeam: 
+					[
+						'Anna Bankus',
+						'Bryce Lawrance',
+						'Conall Stillwagon',
+						'Ethan Romo',
+						'Isaiah Esquivel',
+						'Logan McLaughlin',
+						'Mariah Flagg',
+						'Max Rusco',
+						'Nicholas Casalina',
+						'Zach Arlinghaus'
+					]
+			};
+
+			function showMembers() {
+				var index = teams.selectedIndex;
+				teamMembers.options.length = 0;	// number represents blank space at top of select menu
+
+				if (index == 0) {
+					teamMembers.style.display = 'none'; // hide second select menu
+				} else if (index == 1) {
+					teamMembers.style.display = '';		// show new select
+					yolo = dynamicDiscs.worldChampions; // World Champions
+				} else if (index == 2) {
+					teamMembers.style.display = '';		// show new select
+					yolo = dynamicDiscs.teamKingDs;		// Team King D's
+				} else if (index == 3) {
+					teamMembers.style.display = '';		// show new select
+					yolo = dynamicDiscs.teamFusion;		// Team Fusion
+				} else if (index == 4) {
+					teamMembers.style.display = '';		// show new select
+					yolo = dynamicDiscs.teamLucid;		// Team Lucid
+				} else if (index == 5) {
+					teamMembers.style.display = '';		// show new select
+					yolo = dynamicDiscs.classicTeam;	// Classic Team
+				} else if (index == 6) {
+					teamMembers.style.display = '';		// show new select
+					yolo = dynamicDiscs.ambassadorTeam;	// Ambassador Team
+				} else if (index == 7) {
+					teamMembers.style.display = '';		// show new select
+					yolo = dynamicDiscs.juniorsTeam;	// Juniors Team
+				}
+				
+				for (let i = 0; i < yolo.length; i++) {
+					let members = document.createElement('option'); // create options here due to scope
+					members.innerHTML = yolo[i];					// write text for each option
+					members.value = yolo[i];						// assign value if you want to
+					teamMembers.appendChild(members);				// append options to select menu
+				}
+			}
+			
+			teams.addEventListener('change', () => {	// listen for change in select menu
+				showMembers(); 							// determine team members and append to select
+				document.body.appendChild(teamMembers); // append select to document with change
+			});
+		
+		</script>
+	</body>
+</html>
